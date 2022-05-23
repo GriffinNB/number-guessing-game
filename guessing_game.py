@@ -8,9 +8,9 @@ import random
 
 
 def start_game():
-    #Psuedo-code Hints
+
     number_of_guesses = 0
-    #When the program starts, we want to:
+
     
     # 1. Display an intro/welcome message to the player.
     print("Welcome to the Number Guessing Game!")
@@ -40,11 +40,10 @@ def start_game():
     # 7. Ask the player if they want to play again.
 
     
-    # ( You can add more features/enhancements if you'd like to. )
-
-    # write your code inside this function.
+    # (add more features/enhancements if needed. )
 
 
 
-# Kick off the program by calling the start_game function.
+
+
 start_game()

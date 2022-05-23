@@ -1,2 +1,2 @@
 # Number Guessing Game
- A Techdegree project for Data Analysis (#1)
+ A Treehouse Techdegree project for Data Analysis (Project #1)

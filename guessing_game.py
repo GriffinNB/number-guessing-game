@@ -13,7 +13,9 @@ def start_game():
     
     # 1. Display an intro/welcome message to the player.
     print("Welcome to the Number Guessing Game!")
+ 
     # 2. Store a random number as the answer/solution.
+    random_number = random.randint(1,100)
     
     # 3. Continuously prompt the player for a guess.
       # a. If the guess greater than the solution, display to the player "It's lower".

@@ -5,45 +5,59 @@ Griffin Novetsky
 """
 
 import random
+from statistics import mean, median, mode
+scores = []
 
+def stats():
+  score_mean = mean(scores)
+  score_median = median(scores)
+  score_mode = mode(scores)
+  print(f"Attempt Average: {score_mean}")
+  print(f"Attempt Median: {score_median}")
+  print(f"Attempt Mode: {score_mode}")
 
 
 def start_game():
 
-    number_of_guesses = 0
+    attempts = 0
+    guess = 0
 
     
     # 1. Display an intro/welcome message to the player.
-    print("Welcome to the Number Guessing Game!")
+    print("Welcome to the Number Guessing Game!\nPlease guess a number between 1 and 100")
  
     # 2. Store a random number as the answer/solution.
     random_number = random.randint(1,100)
 
     # 3. Continuously prompt the player for a guess.
-    guess = int(input("Guess a number between 1 and 100:   "))
-    while guess != random_number:
-      number_of_guesses += 1
-      # a. If the guess greater than the solution, display to the player "It's lower".
-      if guess > random_number:
-        guess = int(input("It's Lower   "))
-      # b. If the guess is less than the solution, display to the player "It's higher".
-      elif guess < random_number:
-        guess = int(input("It's Higher   "))
-      
-    # 4. Once the guess is correct, stop looping, inform the user they "Got it"
-    number_of_guesses += 1
-    print("Got it!")
-         #and show how many attempts it took them to get the correct number.
-    print(f"Number of Guesses: {number_of_guesses}")     
-    # 5. Save their attempt number to a list.
-
-    # 6. At the end of the game, show the player, 1) their number of attempts, 2) the mean, median, and mode of the saved attempts list.
-    # 7. Ask the player if they want to play again.
-
     
-    # (add more features/enhancements if needed.)
+    while True:
+      
+      try:
+        guess = int(input("Type your guess:   "))
+        attempts += 1
+        if guess > 100 or guess < 1:
+          raise ValueError("guess has to be a number between 1 and 100")
+      except ValueError as err:
+        print("Oop! Not a valid answer. Try again")    
+      
+      else:
+        if guess == random_number:
+          print("\nGot it!")
+          break
+        elif guess > random_number:
+          print("It's Lower")
+        elif guess < random_number:
+          print("It's Higher")
+    scores.append(attempts)
+    print(f"You guessed it in {attempts} attempts")
+    stats()
 
-
+    new_game = input("Play again?  (Y/N)   ").upper()
+    if new_game == "Y":
+      start_game()
+    elif new_game == "N":
+      print("Thanks for playing the Number Guessing Game!")
 
 
 

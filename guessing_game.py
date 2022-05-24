@@ -15,6 +15,7 @@ def stats():
   print(f"Attempt Average: {score_mean}")
   print(f"Attempt Median: {score_median}")
   print(f"Attempt Mode: {score_mode}")
+  print(f"Best Score: {min(scores)}")
 
 
 def start_game():
@@ -23,13 +24,13 @@ def start_game():
     guess = 0
 
     
-    # 1. Display an intro/welcome message to the player.
     print("Welcome to the Number Guessing Game!\nPlease guess a number between 1 and 100")
- 
-    # 2. Store a random number as the answer/solution.
+    if scores >= [0]:
+      print(f"Score to beat: {min(scores)}")
+    else:
+      print("Be the first high-score!")
     random_number = random.randint(1,100)
 
-    # 3. Continuously prompt the player for a guess.
     
     while True:
       

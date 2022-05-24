@@ -53,11 +53,18 @@ def start_game():
     print(f"You guessed it in {attempts} attempts")
     stats()
 
-    new_game = input("Play again?  (Y/N)   ").upper()
-    if new_game == "Y":
-      start_game()
-    elif new_game == "N":
-      print("Thanks for playing the Number Guessing Game!")
+    
+    try:
+      new_game = input("Play again?  (Y/N)   ").upper()  
+      if new_game != "Y" or new_game != "N":
+        raise ValueError("Please enter Y or N to mark your answer")
+    except ValueError as err:
+      print("Please print an answer of Y or N")    
+    else:
+      if new_game == "Y":
+        start_game()
+      elif new_game == "N":
+        print("Thanks for playing the Number Guessing Game!")
 
 
 
